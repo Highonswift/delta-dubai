@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import {  useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
 
 export default function ResetPassword() {
@@ -9,7 +9,6 @@ export default function ResetPassword() {
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const router = useRouter()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     // This triggers Supabase to exchange the token in the URL for a session
