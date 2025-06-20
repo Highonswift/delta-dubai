@@ -1,0 +1,389 @@
+/*src/components/LandingPage1.css */
+.landing-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-layer {
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+.content-layer h2 {
+  font-family: 'Decaydence', sans-serif;
+  font-size: 5rem;
+  font-weight: normal;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.content-layer p {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s ease-in 0.5s; 
+}
+
+.content-layer button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #D4AF37;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.8s ease-in 0.7s, background-color 0.3s ease, color 0.3s ease;
+}
+
+.content-layer button:hover {
+  background-color: #D4AF37;
+  color: black;
+}
+.content-layer.visible h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.content-layer.visible p,
+.content-layer.visible button {
+  opacity: 1;
+}
+.intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 10;
+  -webkit-mask-image: url('/assets/images/layer-3-intro.png');
+  mask-image: url('/assets/images/layer-3-intro.png');
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+  animation: 
+    zoomOutMask 5s ease-out 1s forwards, 
+    fadeOutOverlay 5s ease-out 1s forwards;
+}
+@keyframes fadeOutOverlay {
+  0% { opacity: 1; } 100% { opacity: 0; pointer-events: none; }
+}
+@keyframes zoomOutMask {
+  0% { -webkit-mask-size: 100%; mask-size: 100%; }
+  100% { -webkit-mask-size: 8000%; mask-size: 8000%; }
+}
+.navbar {
+  position: absolute;
+  top: 2vh;
+  left: 17%;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 1.5rem 3rem;
+  box-sizing: border-box; 
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10rem; 
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: rem;
+  font-weight: 400; 
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  opacity: 0.7; 
+}
+/* All styles are now prefixed with .page-1 */
+.page-1 .landing-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-1 .content-layer {
+  text-align: center;
+  color: white;
+  z-index: 1;
+}
+
+.page-1 .content-layer h2 {
+  font-family: 'Decaydence', sans-serif;
+  font-size: 5rem;
+  font-weight: normal;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.page-1 .content-layer p {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s ease-in 0.5s;
+}
+
+.page-1 .content-layer button {
+  margin-top: 20px;
+  margin-left: 40%;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.8s ease-in 0.7s, background-color 0.3s ease, color 0.3s ease;
+    /* --- ADD THESE LINES --- */
+  display: flex; /* This is key for alignment */
+  align-items: center; /* Vertically centers the text and icon */
+  gap: 0.75rem; /* Adds space between "Book now" and the arrow */
+}
+
+.page-1 .content-layer button:hover {
+  background-color: white;
+  color: black;
+}
+.page-1 .button-arrow-icon {
+  width: 16px;  /* Adjust size as needed */
+  height: 16px;
+  /* This makes the icon color white by default */
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* On hover, move the arrow and change its color to black */
+.page-1 .content-layer button:hover .button-arrow-icon {
+  transform: translateX(5px); /* Moves the arrow to the right */
+  filter: brightness(0) invert(0); /* Changes the icon color to black */
+}
+.page-1 .content-layer.visible h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-1 .content-layer.visible p,
+.page-1 .content-layer.visible button {
+  opacity: 1;
+}
+
+.page-1 .intro-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 10;
+  -webkit-mask-image: url('/assets/images/layer-3-intro.png');
+  mask-image: url('/assets/images/layer-3-intro.png');
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100%;
+  mask-size: 100%;
+  animation:
+    zoomOutMask 5s ease-out 1s forwards,
+    fadeOutOverlay 5s ease-out 1s forwards;
+}
+
+@keyframes fadeOutOverlay {
+  0% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes zoomOutMask {
+  0% { -webkit-mask-size: 100%; mask-size: 100%; }
+  100% { -webkit-mask-size: 8000%; mask-size: 8000%; }
+}
+
+.page-1 .navbar {
+  position: absolute;
+  top: 2vh;
+  left: 17%;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.page-1 .nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10rem;
+}
+
+.page-1 .nav-links a {
+  color: black;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.page-1 .nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* =========================================== */
+/* === Styles for Floating AGENT Button === */
+/* =========================================== */
+
+/* Define the animation for the speech bubble */
+@keyframes pop-up-and-fade {
+  /* Start hidden and slightly down */
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  /* Pop up into view */
+  20% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  /* Stay visible for a while */
+  80% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  /* Fade out and move down */
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+}
+
+/* The main circular button */
+.page-1 .floating-agent-button {
+  /* Positioning */
+  position: fixed;
+  bottom: 6rem;
+  left: 90%;
+  z-index: 1000;
+
+  /* This is crucial for positioning the speech bubble relative to the button */
+  position: relative; 
+
+  /* Layout for the circle */
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Appearance */
+  background-color: #f5f5f5;
+  border-radius: 50%; /* This makes it a perfect circle */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+
+  /* Animation */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for the circle */
+.page-1 .floating-agent-button:hover {
+  background-color: #f5f5f5;
+  transform: scale(1.1); /* Enlarge the circle on hover */
+}
+
+/* The speech bubble for the text */
+.page-1 .chat-bubble {
+  /* Positioning */
+  position: absolute;
+  bottom: 120%; /* Position it above the circle button */
+  left: 50%;
+
+  /* Initially hidden, animation will show it */
+  opacity: 0; 
+  
+  /* Appearance */
+  background-color: #333;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap; /* Prevents the text from wrapping */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+
+  /* Apply the animation */
+  /* It runs for 5s, ease-in-out, starts after 1s, and repeats forever */
+  animation: pop-up-and-fade 5s ease-in-out 1s infinite;
+}
+
+/* The little triangle at the bottom of the speech bubble */
+.page-1 .chat-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; /* Position it at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #333;
+  clip-path: polygon(50% 100%, 0 0, 100% 0); /* Creates a triangle */
+}
+
+/* Styling the SVG icon itself */
+.page-1 .floating-agent-button svg {
+  stroke: white;
+  transition: transform 0.3s ease;
+}
+
+/* Make the icon slightly smaller on hover to feel more interactive */
+.page-1 .floating-agent-button:hover svg {
+    transform: scale(0.9);
+}
+.page-1 .agent-icon {
+  /* Adjust size to fit nicely inside the 60px circle */
+  width: 36px; 
+  height: 36px;
+  transition: transform 0.3s ease;
+}
+
+/* Make the icon slightly smaller on hover to feel more interactive */
+.page-1 .floating-agent-button:hover .agent-icon {
+    transform: scale(0.9);
+}

@@ -1,0 +1,219 @@
+@keyframes page2-slide-right {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100vw); }
+}
+
+@keyframes page2-heartbeat {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  25% { transform: translate(-50%, -50%) scale(1.1); }
+  30% { transform: translate(-50%, -50%) scale(1); }
+  45% { transform: translate(-50%, -50%) scale(1.05); }
+  60% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+.page-2 .landing-container {
+  background-image: url('/assets/images/background.png');
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-2 .background-text {
+  position: absolute;
+  top: 7rem;
+  left: 2rem;
+  text-align: left;
+  font-family: 'Hanseif', sans-serif;
+  font-size: 10vw;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  z-index: 10;
+  white-space: nowrap;
+  animation: page2-slide-right 25s linear infinite;
+}
+
+.page-2 .middle-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 20;
+}
+
+.page-2 .foreground-text {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vw;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  font-weight: 700;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  animation: page2-heartbeat 2s ease-in-out infinite;
+}
+
+/*.page-2 .button {
+  position: absolute;
+  top: 80%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2vw;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-weight: 200;
+  z-index: 30;
+  background-color: rgba(0, 0, 0, 0);
+}*/
+.page-2 .button {
+  /* --- Positioning --- */
+  position: absolute;
+  top: 70%;
+  left: 70%; /* This was in your original code, adjust if needed */
+  transform: translateX(-50%); /* Helps center the button on the 'left' value */
+  z-index: 30;
+
+  /* --- Layout & Spacing (Flexbox for Icon + Text) --- */
+  display: flex; /*  KEY: Aligns icon and text side-by-side */
+  align-items: center; /* KEY: Vertically centers the icon and text */
+  justify-content: center; /* Horizontally centers content */
+  gap: 12px; /* Adds space between the icon and the text */
+  padding: 0 35px; /* Side padding */
+  height: 50px; /* A fixed height for consistency */
+  
+  /* --- Appearance --- */
+  background: #252525; /* A solid dark gray is closer to the image */
+  color: #fff;
+  border: none; /* Remove default button border */
+  
+  /* --- Text Styling --- */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem; /* Using a fixed size like rem is often more reliable than vw for buttons */
+  font-weight: 300; /* A light font weight matches the image */
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+
+  /* --- The Shape (This is the most important part) --- */
+  /* This polygon creates sharp corners with a single clip at the bottom right */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+
+  /* --- Transitions & Hover --- */
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Icon Styling --- */
+.page-2 .button svg {
+  width: 24px;  /* Control icon size */
+  height: 24px;
+}
+
+/* --- Hover Effect --- */
+.page-2 .button:hover {
+  cursor: pointer;
+  background: #3c3c3c; /* Slightly lighten on hover */
+  transform: translateX(-50%) translateY(-3px); /* Add a subtle lift effect */
+}
+.page-2 .navbar {
+  position: absolute;
+  top: 5vh;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  box-sizing: border-box;
+}
+
+.page-2 .nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 10rem;
+}
+
+.page-2 .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.page-2 .nav-links a:hover {
+  opacity: 0.7;
+}
+/*.page-2 .floating-chat-button {
+  position: fixed;   
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; 
+  padding: 0.8rem 1.5rem;
+  background-color: #00000000;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px; 
+  transition: all 0.3s ease-in-out;
+}
+
+.page-2 .floating-chat-button:hover {
+  transform: translateY(-5px); 
+  background-color: #00000000; 
+}
+
+.page-2 .floating-chat-button svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}*/
+
+.page-2 .agent-icon {
+  /* Adjust size to fit nicely inside the 60px circle */
+  width: 25px; 
+  height: 25px;
+  transition: transform 0.3s ease;
+}
+
+.page-2 .button1 {
+  margin-top: -8px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #D4AF37;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.8s ease-in 0.7s, background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-2  .button1:hover {
+  background-color: #D4AF37;
+  color: black;
+}
+
+.page-2 .button1 {
+  opacity: 1;
+}
